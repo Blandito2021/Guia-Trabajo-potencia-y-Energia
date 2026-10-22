@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>TRABAJO, POTENCIA Y LA ENERGÍA | Guía-Taller Interactivo PAFEM</title>
+  <meta name="description" content="Guía y Taller interactivo de Física sobre Trabajo, Potencia, Teorema de Trabajo y Energía, Energía Cinética, Potencial y Conservación de la Energía para las I.E. Diego Maya Salazar, Jaime Salazar Robledo y Hugo Ángel Mejía.">
+  <meta name="author" content="Luis Hernando Blandón Dávila — Coordinador de Física PAFEM">
+  <meta name="theme-color" content="#0a0f1d">
+
+  <!-- Fuentes Tipográficas Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- KaTeX para tipografía matemática de alta precisión -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+  <!-- Hoja de estilos del sistema de diseño (Tamaño Carta Vertical, Responsive y Temas) -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="theme-dark">
+
+  <!-- ========================================================================
+       BARRA DE NAVEGACIÓN SUPERIOR (STICKY CON PROGRESO Y TEMAS)
+       ======================================================================== -->
+  <header class="top-navbar" role="banner">
+    <div class="brand-section">
+      <div class="brand-icon" aria-hidden="true">
+        <i class="fas fa-bolt"></i>
+      </div>
+      <div class="brand-text">
+        <h1>FÍSICA PAFEM — TRABAJO, POTENCIA Y ENERGÍA</h1>
+        <p>Luis Hernando Blandón Dávila — Coordinador de Física PAFEM</p>
+      </div>
+    </div>
+
+    <!-- Navegación entre Hojas Formato Carta (8 Hojas) -->
+    <nav class="nav-pages" aria-label="Navegación de hojas de la guía">
+      <button type="button" class="nav-tab-btn" id="btnNavHome" title="Volver a la portada de inicio">
+        <i class="fas fa-home"></i> Inicio
+      </button>
+      <button type="button" class="nav-tab-btn active" data-page="sheet-1" id="navTab1">
+        <span class="badge-num">1</span> Portada
+      </button>
+      <button type="button" class="nav-tab-btn" data-page="sheet-2" id="navTab2">
+        <span class="badge-num">2</span> Trabajo (W)
+      </button>
+      <button type="button" class="nav-tab-btn" data-page="sheet-3" id="navTab3">
+        <span class="badge-num">3</span> Teorema W-K
+      </button>
+      <button type="button" class="nav-tab-btn" data-page="sheet-4" id="navTab4">
+        <span class="badge-num">4</span> Hooke &amp; Ue
+      </button>
+      <button type="button" class="nav-tab-btn" data-page="sheet-5" id="navTab5">
+        <span class="badge-num">5</span> Conservación
+      </button>
+      <button type="button" class="nav-tab-btn" data-page="sheet-6" id="navTab6">
+        <span class="badge-num">6</span> Potencia (P)
+      </button>
+      <button type="button" class="nav-tab-btn" data-page="sheet-7" id="navTab7">
+        <span class="badge-num">7</span> Taller
+      </button>
+      <button type="button" class="nav-tab-btn" data-page="sheet-8" id="navTab8">
+        <span class="badge-num">8</span> Evaluación &amp; PDF
+      </button>
+    </nav>
+
+    <!-- Acciones Rápidas y Selector de Temas Visuales -->
+    <div class="navbar-actions">
+      <div class="theme-selector-dropdown">
+        <button type="button" class="btn-theme-selector" id="btnThemeMenu" aria-expanded="false" title="Cambiar estética y estilos de diseño">
+          <i class="fas fa-palette"></i> <span>Estilos (6)</span> <i class="fas fa-chevron-down" style="font-size:0.65rem;"></i>
+        </button>
+        <div class="theme-dropdown-menu" id="themeMenuPopover" role="menu">
+          <div class="theme-menu-header">
+            <span>Seleccionar Estilo</span>
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <button type="button" class="theme-option-btn" data-set-theme="theme-dark">
+            <span class="theme-preview-dot" style="background: #090d16;"></span>
+            <span>🌙 Modo Oscuro Clásico</span>
+          </button>
+          <button type="button" class="theme-option-btn" data-set-theme="theme-light">
+            <span class="theme-preview-dot" style="background: #ffffff; border: 1px solid #cbd5e1;"></span>
+            <span>☀️ Modo Claro Universitario</span>
+          </button>
+          <button type="button" class="theme-option-btn" data-set-theme="theme-glassmorphism">
+            <span class="theme-preview-dot" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);"></span>
+            <span>🧊 Vidriomorfismo (Glassmorphism)</span>
+          </button>
+          <button type="button" class="theme-option-btn" data-set-theme="theme-neumorphism">
+            <span class="theme-preview-dot" style="background: #e2e8f0; box-shadow: inset 2px 2px 4px #bec5ce;"></span>
+            <span>🔘 Neomorfismo Táctil Suave</span>
+          </button>
+          <button type="button" class="theme-option-btn" data-set-theme="theme-bentogrid">
+            <span class="theme-preview-dot" style="background: linear-gradient(135deg, #818cf8, #a855f7);"></span>
+            <span>🍱 Bento Grid Cyber (Modular)</span>
+          </button>
+          <button type="button" class="theme-option-btn" data-set-theme="theme-minimalism">
+            <span class="theme-preview-dot" style="background: #ffffff; border: 2px solid #000;"></span>
+            <span>📐 Minimalismo Suizo Audaz</span>
+          </button>
+          <button type="button" class="theme-option-btn" data-set-theme="theme-neobrutalism">
+            <span class="theme-preview-dot" style="background: #fde047; border: 2px solid #000;"></span>
+            <span>⚡ Neo-Brutalismo Pop Physics</span>
+          </button>
+        </div>
+      </div>
+
+      <button type="button" class="btn-action btn-pdf" id="btnExportPdfTop" title="Descargar Guía en PDF Tamaño Carta Oficial">
+        <i class="fas fa-file-pdf"></i> <span>Exportar PDF</span>
+      </button>
+    </div>
+
+    <!-- Barra de progreso de lectura horizontal -->
+    <div class="nav-progress-container" aria-hidden="true">
+      <div class="nav-progress-bar" id="navProgressBar"></div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       CONTENEDOR GENERAL DE HOJAS TAMAÑO CARTA (LETTER VERTICAL 8.5" x 11")
+       ======================================================================== -->
+  <main class="sheets-wrapper" id="sheetsContainer">
+
+    <!-- ----------------------------------------------------------------------
+         HOJA 1: PORTADA, DATOS DE IDENTIFICACIÓN, TU MISIÓN & DIRECTRICES
+         ---------------------------------------------------------------------- -->
+    <section class="sheet-page" id="sheet-1" aria-labelledby="h1-title">
+      <header class="sheet-header">
+        <div class="sheet-header-left">
+          <div class="logo-badge">PAFEM</div>
+          <div class="sheet-title-group">
+            <h2>PROGRAMA DE FORTALECIMIENTO DE LA EDUCACIÓN MEDIA</h2>
+            <p>Área de Ciencias Naturales y Educación Ambiental: Física Mecánica de Grado 10° y 11°</p>
+          </div>
+        </div>
+        <div class="sheet-header-right">
+          <strong>GUÍA-TALLER N° 05</strong>
+          <span>Trabajo, Potencia &amp; Energía</span>
+        </div>
+      </header>
+
+      <div class="sheet-body">
+        <div class="cover-hero">
+          <div class="cover-badge-top">
+            <i class="fas fa-graduation-cap"></i> Proyecto Pedagógico Intercolegiado — Pereira (Risaralda)
+          </div>
+          <h1 id="h1-title">TRABAJO, POTENCIA, ENERGÍA <span>Y CONSERVACIÓN DE LA ENERGÍA</span></h1>
+          <p class="lead">Laboratorio Virtual Interactivo, Modelos Cuantitativos de Serway y Análisis de Transformaciones Energéticas</p>
+        </div>
+
+        <!-- Imagen 1 WebP (Portada / Energía en Acción) -->
+        <div class="cover-image-container" title="Haz clic para ampliar la figura">
+          <img src="imagenes/imagen1.webp" alt="Naturaleza del Trabajo Mecánico y la Energía en Acción">
+        </div>
+
+        <!-- Misión del Estudiante Investigador -->
+        <article class="mission-banner">
+          <h3>
+            <i class="fas fa-compass"></i> TU MISIÓN COMO INVESTIGADOR CIENTÍFICO
+          </h3>
+          <p>
+            Durante este taller interactivo actuarás como un <strong>físico e ingeniero investigador</strong>. Manipularás fuerzas vectoriales a diferentes ángulos, medirás el trabajo mecánico en tiempo real, experimentarás con resortes reales bajo la Ley de Hooke, lanzarás carros en montañas rusas para verificar la inquebrantable <strong>Ley de Conservación de la Energía Mecánica</strong> y calcularás la potencia de motores industriales. ¡Descubre la pasión por la ciencia que mueve nuestro universo!
+          </p>
+        </article>
+
+        <!-- Formulario de Identificación del Estudiante -->
+        <article class="student-data-card" aria-labelledby="student-data-title">
+          <h3 id="student-data-title"><i class="fas fa-id-card"></i> Datos de Identificación del Estudiante</h3>
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="inputStudentName">Nombre Completo del Estudiante:</label>
+              <input type="text" id="inputStudentName" class="form-control" placeholder="Ej: Mateo Alejandro Gómez Restrepo" required autocomplete="name">
+            </div>
+
+            <div class="form-group">
+              <label for="selectSchool">Nombre de la Institución:</label>
+              <select id="selectSchool" class="form-control">
+                <option value="I.E. Diego Maya Salazar">Institución Educativa Diego Maya Salazar</option>
+                <option value="I.E. Jaime Salazar Robledo">Institución Educativa Jaime Salazar Robledo</option>
+                <option value="I.E. Hugo Ángel Mejía">Institución Educativa Hugo Ángel Mejía</option>
+                <option value="Otra">Otra Institución Educativa...</option>
+              </select>
+            </div>
+
+            <div class="form-group" id="customSchoolWrapper" style="display: none;">
+              <label for="inputCustomSchool">Nombre del Colegio:</label>
+              <input type="text" id="inputCustomSchool" class="form-control" placeholder="Escribe el nombre de tu institución">
+            </div>
+
+            <div class="form-group">
+              <label for="selectGrade">Grado y Grupo:</label>
+              <div style="display: flex; gap: 0.5rem;">
+                <select id="selectGrade" class="form-control" style="flex: 1;">
+                  <option value="11°">11° (Undécimo)</option>
+                  <option value="10°">10° (Décimo)</option>
+                </select>
+                <input type="text" id="inputGroup" class="form-control" placeholder="Grupo" value="1" style="width: 70px;">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputDate">Fecha:</label>
+              <input type="text" id="inputDate" class="form-control" readonly>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.65rem; margin-top: 0.75rem; flex-wrap: wrap;">
+            <button type="button" class="btn-action btn-primary" id="btnStartGuide">
+              <i class="fas fa-play"></i> INICIAR GUÍA Y SIMULACIONES
+            </button>
+            <button type="button" class="btn-action btn-secondary" id="btnValidateData">
+              <i class="fas fa-user-check"></i> VALIDAR DATOS
+            </button>
+          </div>
+        </article>
+
+        <!-- Indicaciones y Mandato de Transcripción Manual -->
+        <aside class="instructions-alert" role="note">
+          <h4><i class="fas fa-exclamation-circle"></i> Directrices Pedagógicas Obligatorias — Prof. Luis Hernando Blandón Dávila</h4>
+          <p>Apreciados estudiantes de las instituciones <strong>Diego Maya Salazar, Jaime Salazar Robledo y Hugo Ángel Mejía</strong>:</p>
+          <ul>
+            <li><strong>MANDATO DE TRANSCRIPCIÓN MANUAL:</strong> Todo el desarrollo analítico, diagramas de cuerpo libre (DCL), trazo de vectores de fuerza con regla y transportador, gráficas de $F$ vs $x$ y los cálculos numéricos paso a paso con sus despejes algebraicos <em>deben ser transcritos de puño y letra en el cuaderno oficial de física o en hojas de block cuadriculado tamaño carta</em>.</li>
+            <li><strong>Criterio de Evaluación Estética:</strong> Se exigirá una excelente presentación, orden secuencial, pulcritud, caligrafía clara y sustentación rigurosa de cada resultado físico con sus respectivas unidades en el Sistema Internacional (Joules, Watts, Newtons, metros, segundos, kg).</li>
+            <li><strong>Uso de los Laboratorios Virtuales:</strong> Utiliza cada una de las 5 simulaciones interactivas para experimentar con variables, comprobar tus predicciones teóricas y validar tus cálculos antes de consignarlos en el informe final.</li>
+          </ul>
+        </aside>
+
+        <!-- Controles de navegación al pie de la hoja -->
+        <div class="sheet-nav-controls">
+          <span style="font-size:0.75rem; color:#64748b; font-weight:600;">Sección 1 de 8: Inicio y Misión</span>
+          <button type="button" class="btn-nav-step primary" data-nav-target="sheet-2">
+            Siguiente: Trabajo Mecánico (W) <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <footer class="sheet-footer">
+        <div class="footer-coordinator">
+          <i class="fas fa-user-tie"></i> Luis Hernando Blandón Dávila — Coordinador de Física PAFEM
+        </div>
+        <div class="footer-page-num">Página 1 de 8</div>
+      </footer>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         HOJA 2: TRABAJO MECÁNICO Y PRODUCTO ESCALAR (CAP. 7 SERWAY)
+         ---------------------------------------------------------------------- -->
+    <section class="sheet-page" id="sheet-2" aria-labelledby="h2-title">
+      <header class="sheet-header">
+        <div class="sheet-header-left">
+          <div class="logo-badge">TEORÍA</div>
+          <div class="sheet-title-group">
+            <h2 id="h2-title">TRABAJO MECÁNICO Y PRODUCTO ESCALAR</h2>
+            <p>Capítulo 7 (Serway): Energía de un sistema y trabajo por una fuerza constante</p>
+          </div>
+        </div>
+        <div class="sheet-header-right">
+          <strong>LECCIÓN 01</strong>
+          <span>Fuerza y Desplazamiento</span>
+        </div>
+      </header>
+
+      <div class="sheet-body">
+        <div class="theory-columns">
+          <article class="theory-block">
+            <span class="concept-pill-badge badge-work">Definición Fundamental</span>
+            <h4><i class="fas fa-calculator"></i> ¿Qué es Trabajo en Física?</h4>
+            <p>
+              En la vida cotidiana, "trabajo" es cualquier actividad que cansa. En física, el <strong>trabajo mecánico ($W$)</strong> realizado por una fuerza constante sobre un sistema se define rigurosamente como el <em>producto escalar</em> del vector fuerza $\vec{F}$ por el vector desplazamiento $\Delta\vec{r}$:
+            </p>
+            <div class="formula-box">
+              $$W = \vec{F} \cdot \Delta\vec{r} = F \, d \cos\theta$$
+            </div>
+            <p>
+              Donde $F$ es la magnitud de la fuerza en Newtons (N), $d$ es el desplazamiento en metros (m), y $\theta$ es el ángulo entre ambos vectores. La unidad en el SI es el <strong>Joule (J)</strong>: $1\text{ J} = 1\text{ N}\cdot\text{m} = 1\text{ kg}\cdot\text{m}^2/\text{s}^2$.
+            </p>
+          </article>
+
+          <article class="theory-block">
+            <span class="concept-pill-badge badge-warning">Los Tres Casos Cardinales</span>
+            <h4><i class="fas fa-arrows-split-up-and-left"></i> El Signo del Trabajo</h4>
+            <ul style="font-size:0.75rem; padding-left:1.1rem; line-height:1.45; color:#334155;">
+              <li><strong>Trabajo Motor ($W > 0$):</strong> Si $0^\circ \le \theta < 90^\circ$, $\cos\theta > 0$. La fuerza transfiere energía al sistema y aumenta su rapidez.</li>
+              <li><strong>Trabajo Nulo ($W = 0$):</strong> Si $\theta = 90^\circ$, $\cos 90^\circ = 0$. Una fuerza perpendicular al movimiento (como la Normal o la centrípeta) <em>no realiza trabajo</em>.</li>
+              <li><strong>Trabajo Resistente ($W < 0$):</strong> Si $90^\circ < \theta \le 180^\circ$, $\cos\theta < 0$. La fuerza extrae energía del sistema (ejemplo típico: la fricción cinética con $\theta = 180^\circ$, $\cos 180^\circ = -1$).</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Imagen 2 WebP (Trabajo Mecánico) -->
+        <div class="scientific-figure-card">
+          <div class="figure-img-wrapper" title="Clic para ampliar ilustración">
+            <img src="imagenes/imagen2_trabajo.webp" alt="Trabajo mecánico realizado por una fuerza que forma un ángulo teta con el desplazamiento">
+            <div class="figure-zoom-overlay"><i class="fas fa-search-plus"></i> Ampliar</div>
+          </div>
+          <div class="figure-caption">
+            <strong>Figura 2.1 — Modelo Serway de Trabajo:</strong> Descomposición del vector fuerza en sus componentes ortogonales. Solo la componente paralela al desplazamiento $F_x = F\cos\theta$ realiza trabajo mecánico; la componente vertical $F_y = F\sin\theta$ no produce desplazamiento horizontal.
+          </div>
+        </div>
+
+        <!-- SIMULACIÓN 1: TRABAJO MECÁNICO Y VECTORES EN ACCIÓN -->
+        <article class="sim-box-wrapper" aria-label="Simulador interactivo de trabajo mecánico">
+          <div class="sim-header-bar">
+            <div class="sim-title">
+              <i class="fas fa-cube"></i> Simulación 1: Laboratorio Táctil de Trabajo Mecánico y Vectores
+            </div>
+            <div style="font-size:0.72rem; color:#94a3b8;">
+              <i class="fas fa-hand-pointer"></i> ¡Arrastra la punta del vector de fuerza en el canvas!
+            </div>
+          </div>
+
+          <div class="sim-canvas-container">
+            <canvas id="workSimCanvas"></canvas>
+            <div class="sim-overlay-telemetry" id="workSimTelemetry">
+              Cargando telemetría de trabajo...
+            </div>
+          </div>
+
+          <div class="sim-controls-grid">
+            <div class="control-card">
+              <div class="control-label-group">
+                <span>Fuerza Aplicada (F):</span>
+                <span class="control-val-badge" id="valWorkF">60 N</span>
+              </div>
+              <input type="range" min="0" max="100" value="60" class="slider-custom" id="sliderWorkF">
+            </div>
+
+            <div class="control-card">
+              <div class="control-label-group">
+                <span>Ángulo (θ):</span>
+                <span class="control-val-badge" id="valWorkTheta">30°</span>
+              </div>
+              <input type="range" min="-90" max="180" value="30" class="slider-custom" id="sliderWorkTheta">
+            </div>
+
+            <div class="control-card">
+              <div class="control-label-group">
+                <span>Desplazamiento (d):</span>
+                <span class="control-val-badge" id="valWorkD">8 m</span>
+              </div>
+              <input type="range" min="1" max="20" value="8" class="slider-custom" id="sliderWorkD">
+            </div>
+
+            <div class="control-card">
+              <div class="control-label-group">
+                <span>Coef. Fricción (μk):</span>
+                <span class="control-val-badge" id="valWorkMu">0.15</span>
+              </div>
+              <input type="range" min="0" max="0.6" step="0.05" value="0.15" class="slider-custom" id="sliderWorkMu">
+            </div>
+          </div>
+
+          <div class="sim-actions-bar">
+            <button type="button" class="btn-sim-action btn-play" id="btnAnimateWork">
+              <i class="fas fa-play"></i> Animar Desplazamiento
+            </button>
+            <button type="button" class="btn-sim-action btn-reset" id="btnResetWork">
+              <i class="fas fa-undo"></i> Reiniciar Posición
+            </button>
+          </div>
+        </article>
+
+        <div class="sheet-nav-controls">
+          <button type="button" class="btn-nav-step" data-nav-target="sheet-1">
+            <i class="fas fa-arrow-left"></i> Anterior: Portada
+          </button>
+          <span style="font-size:0.75rem; color:#64748b; font-weight:600;">Sección 2 de 8: Trabajo Mecánico</span>
+          <button type="button" class="btn-nav-step primary" data-nav-target="sheet-3">
+            Siguiente: Teorema Trabajo-Energía <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <footer class="sheet-footer">
+        <div class="footer-coordinator">
+          <i class="fas fa-user-tie"></i> Luis Hernando Blandón Dávila — Coordinador de Física PAFEM
+        </div>
+        <div class="footer-page-num">Página 2 de 8</div>
+      </footer>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         HOJA 3: TEOREMA DEL TRABAJO Y LA ENERGÍA CINÉTICA (Wnet = ΔK)
+         ---------------------------------------------------------------------- -->
+    <section class="sheet-page" id="sheet-3" aria-labelledby="h3-title">
+      <header class="sheet-header">
+        <div class="sheet-header-left">
+          <div class="logo-badge">TEOREMA</div>
+          <div class="sheet-title-group">
+            <h2 id="h3-title">ENERGÍA CINÉTICA Y EL TEOREMA TRABAJO-ENERGÍA</h2>
+            <p>Capítulo 7.5 (Serway): Relación entre trabajo neto y rapidez de una partícula</p>
+          </div>
+        </div>
+        <div class="sheet-header-right">
+          <strong>LECCIÓN 02</strong>
+          <span>Energía del Movimiento</span>
+        </div>
+      </header>
+
+      <div class="sheet-body">
+        <div class="theory-columns">
+          <article class="theory-block">
+            <span class="concept-pill-badge badge-energy">Energía Cinética</span>
+            <h4><i class="fas fa-running"></i> Energía Cinética (K)</h4>
+            <p>
+              La <strong>energía cinética ($K$)</strong> es la energía que posee un cuerpo debido a su estado de movimiento. Para un objeto de masa $m$ que se desplaza con rapidez $v$:
+            </p>
+            <div class="formula-box">
+              $$K = \frac{1}{2} m v^2$$
+            </div>
+            <p>
+              Es una magnitud escalar estrictamente positiva ($K \ge 0$). Al duplicar la rapidez de un móvil, su energía cinética se <em>cuadruplica</em>.
+            </p>
+          </article>
+
+          <article class="theory-block">
+            <span class="concept-pill-badge badge-work">Teorema Central</span>
+            <h4><i class="fas fa-balance-scale"></i> Teorema del Trabajo y la Energía</h4>
+            <p>
+              Al aplicar la 2da Ley de Newton ($\Sigma F_x = m a$) y la ecuación cinemática de Torricelli ($v_f^2 = v_i^2 + 2 a d$), se demuestra que el <strong>trabajo neto</strong> realizado por todas las fuerzas sobre el cuerpo equivale exactamente a la variación de su energía cinética:
+            </p>
+            <div class="formula-box">
+              $$W_{neto} = \Delta K = K_f - K_i = \frac{1}{2} m v_f^2 - \frac{1}{2} m v_i^2$$
+            </div>
+          </article>
+        </div>
+
+        <!-- Imagen 6 WebP (Energía Cinética) -->
+        <div class="scientific-figure-card">
+          <div class="figure-img-wrapper" title="Clic para ampliar ilustración">
+            <img src="imagenes/imagen6_energia_cinetica.webp" alt="Energía cinética y Teorema de trabajo y energía de Serway">
+            <div class="figure-zoom-overlay"><i class="fas fa-search-plus"></i> Ampliar</div>
+          </div>
+          <div class="figure-caption">
+            <strong>Figura 3.1 — Teorema Trabajo-Energía en el Frenado:</strong> Cuando los frenos ejercen una fuerza de fricción constante contra el movimiento, el trabajo negativo de fricción $W_{friccion} = -f_k d$ reduce la energía cinética del carro a cero ($K_f = 0$), disipando toda esa energía en calor.
+          </div>
+        </div>
+
+        <!-- SIMULACIÓN 2: PISTA DE FRENADO Y TEOREMA TRABAJO-ENERGÍA -->
+        <article class="sim-box-wrapper" aria-label="Simulador de teorema trabajo y energía cinética">
+          <div class="sim-header-bar">
+            <div class="sim-title">
+              <i class="fas fa-car-crash"></i> Simulación 2: Laboratorio de Desaceleración, Frenado y Teorema W = ΔK
+            </div>
+            <div style="font-size:0.72rem; color:#facc15;">
+              <i class="fas fa-info-circle"></i> Demostración de distancia de frenado cuadrática
+            </div>
+          </div>
+
+          <div class="sim-canvas-container">
+            <canvas id="workEnergyCanvas"></canvas>
+            <div class="sim-overlay-telemetry" id="workEnergyTelemetry">
+              Cargando telemetría de energía cinética...
+            </div>
+          </div>
+
+          <div class="sim-controls-grid">
+            <div class="control-card">
+              <div class="control-label-group">
+                <span>Velocidad Inicial (v0):</span>
+                <span class="control-val-badge" id="valEnergyV0">20 m/s</span>
+              </div>
+              <input type="range" min="5" max="35" value="20" class="slider-custom" id="sliderEnergyV0">
+            </div>
+
+            <div class="control-card">
+              <div class="control-label-group">
+                <span>Coef. de Fricción (μk):</span>
+                <span class="control-val-badge" id="valEnergyMu">0.50</span>
+              </div>
+              <input type="range" min="0.2" max="0.9" step="0.05" value="0.50" class="slider-custom" id="sliderEnergyMu">
+            </div>
+          </div>
+
+          <div class="sim-actions-bar">
+            <button type="button" class="btn-sim-action btn-play" id="btnStartBrake">
+              <i class="fas fa-stop-circle"></i> ¡Frenar a Fondo!
+            </button>
+            <button type="button" class="btn-sim-action btn-reset" id="btnResetEnergy">
+              <i class="fas fa-undo"></i> Reiniciar Vehículo
+            </button>
+          </div>
+        </article>
+
+        <div class="sheet-nav-controls">
+          <button type="button" class="btn-nav-step" data-nav-target="sheet-2">
+            <i class="fas fa-arrow-left"></i> Anterior: Trabajo Mecánico
+          </button>
+          <span style="font-size:0.75rem; color:#64748b; font-weight:600;">Sección 3 de 8: Teorema Trabajo-Energía</span>
+          <button type="button" class="btn-nav-step primary" data-nav-target="sheet-4">
+            Siguiente: Ley de Hooke &amp; Ue <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <footer class="sheet-footer">
+        <div class="footer-coordinator">
+          <i class="fas fa-user-tie"></i> Luis Hernando Blandón Dávila — Coordinador de Física PAFEM
+        </div>
+        <div class="footer-page-num">Página 3 de 8</div>
+      </footer>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         HOJA 4: FUERZA VARIABLE, LEY DE HOOKE Y ENERGÍA ELÁSTICA
+         ---------------------------------------------------------------------- -->
+    <section class="sheet-page" id="sheet-4" aria-labelledby="h4-title">
+      <header class="sheet-header">
+        <div class="sheet-header-left">
+          <div class="logo-badge">RESORTES</div>
+          <div class="sheet-title-group">
+            <h2 id="h4-title">FUERZA VARIABLE, LEY DE HOOKE Y ENERGÍA ELÁSTICA</h2>
+            <p>Capítulo 7.4 y 7.6 (Serway): Área bajo la curva e integración de fuerzas elásticas</p>
+          </div>
+        </div>
+        <div class="sheet-header-right">
+          <strong>LECCIÓN 03</strong>
+          <span>Sistemas Deformables</span>
+        </div>
+      </header>
+
+      <div class="sheet-body">
+        <div class="theory-columns">
+          <article class="theory-block">
+            <span class="concept-pill-badge badge-spring">Ley de Hooke (1678)</span>
+            <h4><i class="fas fa-compress-arrows-alt"></i> La Fuerza Restauradora</h4>
+            <p>
+              Robert Hooke formuló que la fuerza que ejerce un resorte ideal es directamente proporcional a su deformación $x$ respecto a su posición de equilibrio, pero en sentido opuesto:
+            </p>
+            <div class="formula-box">
+              $$F_s = -k x$$
+            </div>
+            <p>
+              Donde $k$ es la <strong>constante de rigidez</strong> del resorte en $\text{N/m}$. El signo negativo refleja que es una fuerza <em>restauradora</em>.
+            </p>
+          </article>
+
+          <article class="theory-block">
+            <span class="concept-pill-badge badge-spring">Área Bajo la Curva</span>
+            <h4><i class="fas fa-chart-area"></i> Energía Potencial Elástica ($U_e$)</h4>
+            <p>
+              Como la fuerza varía linealmente, el trabajo realizado por un agente externo para deformar el resorte equivale al <strong>área del triángulo</strong> bajo la gráfica $F$ vs $x$:
+            </p>
+            <div class="formula-box">
+              $$U_e = W_{ext} = \int_0^x k x' dx' = \frac{1}{2} k x^2$$
+            </div>
+            <p>
+              Esta energía queda acumulada en los enlaces interatómicos del resorte comprimido o estirado, disponible para realizar trabajo.
+            </p>
+          </article>
+        </div>
+
+        <!-- Figuras Históricas: Robert Hooke (Imagen 9) y Energía Elástica (Imagen 8) -->
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.75rem;">
+          <div class="scientific-figure-card">
+            <div class="figure-img-wrapper" title="Clic para ampliar">
+              <img src="imagenes/imagen9_Hooke.webp" alt="Robert Hooke y la Ley de Deformación de los Resortes">
+              <div class="figure-zoom-overlay"><i class="fas fa-search-plus"></i> Ampliar</div>
+            </div>
+            <div class="figure-caption">
+              <strong>Figura 4.1 — Robert Hooke (1635-1703):</strong> Científico experimental inglés que descubrió la relación lineal entre el esfuerzo y la deformación unitaria elástica.
+            </div>
+          </div>
+
+          <div class="scientific-figure-card">
+            <div class="figure-img-wrapper" title="Clic para ampliar">
+              <img src="imagenes/figura_energia_elastica_resorte.webp" alt="Ley de Hooke y Energía Potencial Elástica con gráfica F vs x">
+              <div class="figure-zoom-overlay"><i class="fas fa-search-plus"></i> Ampliar</div>
+            </div>
+            <div class="figure-caption">
+              <strong>Figura 4.2 — Ley de Hooke y Área de Energía Elástica:</strong> Comportamiento del resorte en equilibrio, elongación y compresión. El área triangular bajo la curva $F = kx$ representa la energía potencial elástica acumulada: $U_e = \frac{1}{2}kx^2$.
+            </div>
+          </div>
+        </div>
+
+        <!-- SIMULACIÓN 3: RESORTE TÁCTIL DE HOOKE Y GRÁFICA F vs X -->
+        <article class="sim-box-wrapper" aria-label="Simulador interactivo del resorte de Hooke">
+          <div class="sim-header-bar">
+            <div class="sim-title">
+              <i class="fas fa-wave-square"></i> Simulación 3: Laboratorio Táctil del Resorte y Demostración Geométrica
+            </div>
+            <div style="font-size:0.72rem; color:#38bdf8;">
+              <i class="fas fa-arrows-alt-h"></i> ¡Arrastra la masa hacia la izquierda o derecha en el canvas!
+            </div>
+          </div>
+
+          <div class="sim-canvas-container">
+            <canvas id="springSimCanvas"></canvas>
+            <div class="sim-overlay-telemetry" id="springSimTelemetry">
+              Cargando telemetría elástica...
+            </div>
+          </div>
+
+          <div class="sim-controls-grid">
+            <div class="control-card">
+              <div class="control-label-group">
+                <span>Constante del Resorte (k):</span>
+                <span class="control-val-badge" id="valSpringK">80 N/m</span>
+              </div>
+              <input type="range" min="20" max="200" value="80" class="slider-custom" id="sliderSpringK">
+            </div>
+
+            <div class="control-card">
+              <div class="control-label-group">
+                <span>Deformación (x):</span>
+                <span class="control-val-badge" id="valSpringX">0.60 m</span>
+              </div>
+              <input type="range" min="-1.0" max="1.0" step="0.05" value="0.60" class="slider-custom" id="sliderSpringX">
+            </div>
+          </div>
+
+          <div class="sim-actions-bar">
+            <button type="button" class="btn-sim-action btn-play" id="btnToggleSpringOscillate">
+              <i class="fas fa-play"></i> Liberar y Oscilar (M.A.S.)
+            </button>
+          </div>
+        </article>
+
+        <div class="sheet-nav-controls">
+          <button type="button" class="btn-nav-step" data-nav-target="sheet-3">
+            <i class="fas fa-arrow-left"></i> Anterior: Teorema W-K
+          </button>
+          <span style="font-size:0.75rem; color:#64748b; font-weight:600;">Sección 4 de 8: Ley de Hooke</span>
+          <button type="button" class="btn-nav-step primary" data-nav-target="sheet-5">
+            Siguiente: Conservación de la Energía <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <footer class="sheet-footer">
+        <div class="footer-coordinator">
+          <i class="fas fa-user-tie"></i> Luis Hernando Blandón Dávila — Coordinador de Física PAFEM
+        </div>
+        <div class="footer-page-num">Página 4 de 8</div>
+      </footer>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         HOJA 5: ENERGÍA POTENCIAL GRAVITACIONAL Y CONSERVACIÓN DE ENERGÍA
+         ---------------------------------------------------------------------- -->
+    <section class="sheet-page" id="sheet-5" aria-labelledby="h5-title">
+      <header class="sheet-header">
+        <div class="sheet-header-left">
+          <div class="logo-badge">CONSERVACIÓN</div>
+          <div class="sheet-title-group">
+            <h2 id="h5-title">SISTEMAS CONSERVATIVOS Y MONTAÑAS RUSAS</h2>
+            <p>Capítulo 8 (Serway): Conservación de la energía mecánica y disipación por fricción</p>
+          </div>
+        </div>
+        <div class="sheet-header-right">
+          <strong>LECCIÓN 04</strong>
+          <span>Leyes de Conservación</span>
+        </div>
+      </header>
+
+      <div class="sheet-body">
+        <div class="theory-columns">
+          <article class="theory-block">
+            <span class="concept-pill-badge badge-energy">Energía Gravitacional</span>
+            <h4><i class="fas fa-mountain"></i> Energía Potencial Gravitacional</h4>
+            <p>
+              Para un cuerpo de masa $m$ ubicado a una altura $h$ respecto a un nivel de referencia en las cercanías de la superficie terrestre:
+            </p>
+            <div class="formula-box">
+              $$U_g = m g h$$
+            </div>
+            <p>
+              El peso es una <strong>fuerza conservativa</strong>: el trabajo gravitacional no depende de la trayectoria recorrida, únicamente de la diferencia de altura inicial y final ($W_g = -\Delta U_g$).
+            </p>
+          </article>
+
+          <article class="theory-block">
+            <span class="concept-pill-badge badge-work">Ley Inquebrantable</span>
+            <h4><i class="fas fa-infinity"></i> Conservación de la Energía Mecánica</h4>
+            <p>
+              En un sistema aislado donde solo actúan fuerzas conservativas, la <strong>energía mecánica total ($E_{mec} = K + U$)</strong> se conserva constante:
+            </p>
+            <div class="formula-box">
+              $$K_i + U_i = K_f + U_f = \text{Constante}$$
+            </div>
+            <p>
+              Si existe fricción (fuerza no conservativa), la energía mecánica disminuye y se transforma en energía interna térmica: $\Delta E_{mec} = -f_k d$.
+            </p>
+          </article>
+        </div>
+
+        <!-- Figuras: Energía Potencial Gravitacional y Conservación de la Energía Mecánica -->
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.75rem;">
+          <div class="scientific-figure-card">
+            <div class="figure-img-wrapper" title="Clic para ampliar">
+              <img src="imagenes/figura_energia_potencial_gravitacional.webp" alt="Energía potencial gravitacional en tres niveles de altura">
+              <div class="figure-zoom-overlay"><i class="fas fa-search-plus"></i> Ampliar</div>
+            </div>
+            <div class="figure-caption">
+              <strong>Figura 5.1 — Energía Potencial Gravitacional ($U_g = mgh$):</strong> Variación de la energía según la altura $h$. En la cima $U_g$ es máxima; durante la caída libre se transforma en energía cinética $K$; en el nivel de referencia $y = 0$, $U_g = 0$.
+            </div>
+          </div>
+
+          <div class="scientific-figure-card">
+            <div class="figure-img-wrapper" title="Clic para ampliar">
+              <img src="imagenes/figura_conservacion_energia_montana.webp" alt="Conservación de la energía mecánica en montaña rusa">
+              <div class="figure-zoom-overlay"><i class="fas fa-search-plus"></i> Ampliar</div>
+            </div>
+            <div class="figure-caption">
+              <strong>Figura 5.2 — Montaña Rusa y Conservación Mecánica:</strong> En los puntos A, B, C y D, las energías cinética (azul) y potencial (verde) se transforman mutuamente, mientras la energía mecánica total (dorada, $E_{mec} = K + U$) se mantiene rigurosamente constante.
+            </div>
+          </div>
+        </div>
+
+        <!-- SIMULACIÓN 4: MONTAÑA RUSA Y GRÁFICOS DE BARRAS DE ENERGÍA -->
+        <article class="sim-box-wrapper" aria-label="Simulador interactivo de montaña rusa">
+          <div class="sim-header-bar">
+            <div class="sim-title">
+              <i class="fas fa-roller-coaster"></i> Simulación 4: Montaña Rusa y Barras de Energía en Tiempo Real
+            </div>
+            <div style="display:flex; gap:0.5rem; align-items:center;">
+              <label for="selectGravity" style="font-size:0.7rem; color:#cbd5e1;">Gravedad:</label>
+              <select id="selectGravity" style="padding:0.2rem 0.4rem; font-size:0.72rem; border-radius:4px; background:#1e293b; color:white; border:1px solid #475569;">
+                <option value="9.8">Tierra (9.8 m/s²)</option>
+                <option value="1.62">Luna (1.62 m/s²)</option>
+                <option value="24.79">Júpiter (24.79 m/s²)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="sim-canvas-container" style="height:220px;">
+            <canvas id="rollerCoasterCanvas"></canvas>
+          </div>
+
+          <!-- Barras de energía dinámicas en tiempo real -->
+          <div class="energy-bars-container">
+            <div class="energy-bar-row">
+              <span style="color:#60a5fa;"><i class="fas fa-bolt"></i> Cinética (K):</span>
+              <div class="bar-track"><div class="bar-fill bar-k" id="barEnergyK"></div></div>
+              <span id="valEnergyK" style="color:#60a5fa; text-align:right;">0 J</span>
+            </div>
+            <div class="energy-bar-row">
+              <span style="color:#34d399;"><i class="fas fa-arrow-up"></i> Potencial (U):</span>
+              <div class="bar-track"><div class="bar-fill bar-u" id="barEnergyU"></div></div>
+              <span id="valEnergyU" style="color:#34d399; text-align:right;">0 J</span>
+            </div>
+            <div class="energy-bar-row">
+              <span style="color:#fb7185;"><i class="fas fa-fire"></i> Térmica (Eth):</span>
+              <div class="bar-track"><div class="bar-fill bar-th" id="barEnergyTh"></div></div>
+              <span id="valEnergyTh" style="color:#fb7185; text-align:right;">0 J</span>
+            </div>
+            <div class="energy-bar-row">
+              <span style="color:#fbbf24; font-weight:bold;"><i class="fas fa-star"></i> TOTAL (Emec):</span>
+              <div class="bar-track"><div class="bar-fill bar-total" id="barEnergyTotal"></div></div>
+              <span id="valEnergyTotal" style="color:#fbbf24; text-align:right; font-weight:bold;">0 J</span>
+            </div>
+          </div>
+
+          <div class="sim-actions-bar">
+            <button type="button" class="btn-sim-action btn-play" id="btnPlayCoaster">
+              <i class="fas fa-pause"></i> Pausar / Continuar
+            </button>
+            <button type="button" class="btn-sim-action btn-reset" id="btnResetCoaster">
+              <i class="fas fa-undo"></i> Reiniciar Carro
+            </button>
+            <label style="display:inline-flex; align-items:center; gap:0.4rem; font-size:0.75rem; color:#f8fafc; cursor:pointer;">
+              <input type="checkbox" id="toggleFriction"> Activar Rozamiento (Fricción Térmica)
+            </label>
+          </div>
+        </article>
+
+        <div class="sheet-nav-controls">
+          <button type="button" class="btn-nav-step" data-nav-target="sheet-4">
+            <i class="fas fa-arrow-left"></i> Anterior: Ley de Hooke
+          </button>
+          <span style="font-size:0.75rem; color:#64748b; font-weight:600;">Sección 5 de 8: Conservación de la Energía</span>
+          <button type="button" class="btn-nav-step primary" data-nav-target="sheet-6">
+            Siguiente: Potencia Mecánica <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <footer class="sheet-footer">
+        <div class="footer-coordinator">
+          <i class="fas fa-user-tie"></i> Luis Hernando Blandón Dávila — Coordinador de Física PAFEM
+        </div>
+        <div class="footer-page-num">Página 5 de 8</div>
+      </footer>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         HOJA 6: POTENCIA MECÁNICA, EFICIENCIA Y JAMES WATT
+         ---------------------------------------------------------------------- -->
+    <section class="sheet-page" id="sheet-6" aria-labelledby="h6-title">
+      <header class="sheet-header">
+        <div class="sheet-header-left">
+          <div class="logo-badge">POTENCIA</div>
+          <div class="sheet-title-group">
+            <h2 id="h6-title">POTENCIA MECÁNICA Y JAMES WATT</h2>
+            <p>Capítulo 8.5 (Serway): Rapidez de transferencia energética y rendimiento en máquinas</p>
+          </div>
+        </div>
+        <div class="sheet-header-right">
+          <strong>LECCIÓN 05</strong>
+          <span>Física e Ingeniería</span>
+        </div>
+      </header>
+
+      <div class="sheet-body">
+        <div class="theory-columns">
+          <article class="theory-block">
+            <span class="concept-pill-badge badge-power">Rapidez de Trabajo</span>
+            <h4><i class="fas fa-tachometer-alt"></i> Concepto de Potencia</h4>
+            <p>
+              Dos motores pueden realizar exactamente el mismo trabajo (ej: levantar $500\text{ kg}$ a $10\text{ m}$), pero el más potente lo hace en <em>menor tiempo</em>. La <strong>potencia media ($\bar{P}$)</strong> es la tasa temporal con la que se transfiere energía o se realiza trabajo:
+            </p>
+            <div class="formula-box">
+              $$\bar{P} = \frac{W}{\Delta t} = \vec{F} \cdot \vec{v} = F \, v \cos\theta$$
+            </div>
+            <p>
+              La unidad en el SI es el <strong>Vatio o Watt (W)</strong>: $1\text{ W} = 1\text{ J/s}$. En la industria se usa el <strong>Caballo de Fuerza (HP)</strong>: $1\text{ HP} \approx 746\text{ W}$.
+            </p>
+          </article>
+
+          <article class="theory-block">
+            <span class="concept-pill-badge badge-power">Contexto Tecnológico</span>
+            <h4><i class="fas fa-lightbulb"></i> Kilovatio-Hora (kWh)</h4>
+            <p>
+              En la factura de energía eléctrica de nuestras casas no nos cobran potencia, nos cobran <strong>energía consumida</strong> medida en <em>Kilovatios-hora</em>:
+            </p>
+            <div class="formula-box">
+              $$1\text{ kWh} = (1000\text{ W})(3600\text{ s}) = 3.6 \times 10^6\text{ J}$$
+            </div>
+            <p>
+              Es la energía transferida en 1 hora por un artefacto que consume una potencia constante de 1000 Watts (1 kW).
+            </p>
+          </article>
+        </div>
+
+        <!-- Figuras: James Watt (Imagen 4) y Potencia Mecánica (Imagen 3) -->
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.75rem;">
+          <div class="scientific-figure-card">
+            <div class="figure-img-wrapper" title="Clic para ampliar">
+              <img src="imagenes/imagen4_James_Watt.webp" alt="Retrato histórico de James Watt y la máquina de vapor">
+              <div class="figure-zoom-overlay"><i class="fas fa-search-plus"></i> Ampliar</div>
+            </div>
+            <div class="figure-caption">
+              <strong>Figura 6.1 — James Watt (1736-1819):</strong> Ingeniero escocés que perfeccionó la máquina de vapor, impulsó la Revolución Industrial y acuñó el término "Caballo de Fuerza" (HP).
+            </div>
+          </div>
+
+          <div class="scientific-figure-card">
+            <div class="figure-img-wrapper" title="Clic para ampliar">
+              <img src="imagenes/imagen3_potencia.webp" alt="Potencia mecánica en motores y grúas de carga">
+              <div class="figure-zoom-overlay"><i class="fas fa-search-plus"></i> Ampliar</div>
+            </div>
+            <div class="figure-caption">
+              <strong>Figura 6.2 — Grúa Industrial:</strong> Un motor elevando una carga a velocidad constante $v$ desarrolla una potencia instantánea $P = F \cdot v = m g v$.
+            </div>
+          </div>
+        </div>
+
+        <!-- SIMULACIÓN 5: LABORATORIO DE POTENCIA Y ELEVADOR DE CARGA -->
+        <article class="sim-box-wrapper" aria-label="Simulador interactivo de potencia mecánica">
+          <div class="sim-header-bar">
+            <div class="sim-title">
+              <i class="fas fa-cogs"></i> Simulación 5: Laboratorio de Grúa y Potencia de Elevación
+            </div>
+            <div style="font-size:0.72rem; color:#f59e0b;">
+              <i class="fas fa-stopwatch"></i> Cálculo en Watts y Caballos de Fuerza (HP)
+            </div>
+          </div>
+
+          <div class="sim-canvas-container" style="height:210px;">
+            <canvas id="powerSimCanvas"></canvas>
+            <div class="sim-overlay-telemetry" id="powerSimTelemetry">
+              Cargando telemetría de potencia...
+            </div>
+          </div>
+
+          <div class="sim-controls-grid">
+            <div class="control-card">
+              <div class="control-label-group">
+                <span>Masa a Elevar (m):</span>
+                <span class="control-val-badge" id="valPowerMass">400 kg</span>
+              </div>
+              <input type="range" min="100" max="1000" step="50" value="400" class="slider-custom" id="sliderPowerMass">
+            </div>
+
+            <div class="control-card">
+              <div class="control-label-group">
+                <span>Altura Objetivo (h):</span>
+                <span class="control-val-badge" id="valPowerH">15 m</span>
+              </div>
+              <input type="range" min="5" max="25" value="15" class="slider-custom" id="sliderPowerH">
+            </div>
+
+            <div class="control-card">
+              <div class="control-label-group">
+                <span>Tiempo de Elevación (t):</span>
+                <span class="control-val-badge" id="valPowerT">8 s</span>
+              </div>
+              <input type="range" min="3" max="25" value="8" class="slider-custom" id="sliderPowerT">
+            </div>
+          </div>
+
+          <div class="sim-actions-bar">
+            <button type="button" class="btn-sim-action btn-play" id="btnStartLift">
+              <i class="fas fa-arrow-up"></i> ¡Accionar Motor y Elevar!
+            </button>
+            <button type="button" class="btn-sim-action btn-reset" id="btnResetPower">
+              <i class="fas fa-undo"></i> Bajar Carga
+            </button>
+          </div>
+        </article>
+
+        <div class="sheet-nav-controls">
+          <button type="button" class="btn-nav-step" data-nav-target="sheet-5">
+            <i class="fas fa-arrow-left"></i> Anterior: Conservación
+          </button>
+          <span style="font-size:0.75rem; color:#64748b; font-weight:600;">Sección 6 de 8: Potencia Mecánica</span>
+          <button type="button" class="btn-nav-step primary" data-nav-target="sheet-7">
+            Siguiente: Taller Evaluativo <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <footer class="sheet-footer">
+        <div class="footer-coordinator">
+          <i class="fas fa-user-tie"></i> Luis Hernando Blandón Dávila — Coordinador de Física PAFEM
+        </div>
+        <div class="footer-page-num">Página 6 de 8</div>
+      </footer>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         HOJA 7: TALLER EVALUATIVO PAFEM (8 DESAFÍOS CUANTITATIVOS Y CONCEPTUALES)
+         ---------------------------------------------------------------------- -->
+    <section class="sheet-page" id="sheet-7" aria-labelledby="h7-title">
+      <header class="sheet-header">
+        <div class="sheet-header-left">
+          <div class="logo-badge">TALLER</div>
+          <div class="sheet-title-group">
+            <h2 id="h7-title">TALLER INTERACTIVO EVALUATIVO PAFEM</h2>
+            <p>Colegios: Diego Maya Salazar, Jaime Salazar Robledo y Hugo Ángel Mejía</p>
+          </div>
+        </div>
+        <div class="sheet-header-right">
+          <strong>EVALUACIÓN</strong>
+          <span>Cálculo &amp; Argumentación</span>
+        </div>
+      </header>
+
+      <div class="sheet-body">
+        <div class="quiz-header-card">
+          <div>
+            <h4 style="font-size:0.88rem; font-weight:800; color:#0f172a;"><i class="fas fa-tasks"></i> Resolución y Verificación del Taller</h4>
+            <p style="font-size:0.74rem; color:#475569;">Resuelve cada ejercicio, valida tus cálculos interactivos y despliega el procedimiento paso a paso para transcribirlo.</p>
+          </div>
+          <div style="display:flex; gap:0.4rem;">
+            <button type="button" class="btn-action btn-primary active" id="btnModeFull" style="font-size:0.75rem; padding:0.35rem 0.65rem;">
+              Taller Completo (8 Retos)
+            </button>
+            <button type="button" class="btn-action btn-secondary" id="btnModeQuick" style="font-size:0.75rem; padding:0.35rem 0.65rem;">
+              Modo Rápido (5 Retos)
+            </button>
+          </div>
+        </div>
+
+        <!-- Contenedor dinámico de preguntas del taller -->
+        <div class="quiz-questions-list" id="quizQuestionsContainer">
+          <!-- Renderizado por workshop.js -->
+        </div>
+
+        <div class="sheet-nav-controls">
+          <button type="button" class="btn-nav-step" data-nav-target="sheet-6">
+            <i class="fas fa-arrow-left"></i> Anterior: Potencia Mecánica
+          </button>
+          <span style="font-size:0.75rem; color:#64748b; font-weight:600;">Sección 7 de 8: Taller Evaluativo</span>
+          <button type="button" class="btn-nav-step primary" data-nav-target="sheet-8">
+            Siguiente: Evaluación &amp; PDF <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <footer class="sheet-footer">
+        <div class="footer-coordinator">
+          <i class="fas fa-user-tie"></i> Luis Hernando Blandón Dávila — Coordinador de Física PAFEM
+        </div>
+        <div class="footer-page-num">Página 7 de 8</div>
+      </footer>
+    </section>
+
+    <!-- ----------------------------------------------------------------------
+         HOJA 8: RÚBRICA DEL MEN, RESULTADOS, METACOGNICIÓN Y EXPORTACIÓN EN PDF
+         ---------------------------------------------------------------------- -->
+    <section class="sheet-page" id="sheet-8" aria-labelledby="h8-title">
+      <header class="sheet-header">
+        <div class="sheet-header-left">
+          <div class="logo-badge">RÚBRICA</div>
+          <div class="sheet-title-group">
+            <h2 id="h8-title">RÚBRICA DE EVALUACIÓN DEL MEN Y ENTREGA FINAL</h2>
+            <p>Criterios de valoración del aprendizaje, metacognición y reporte oficial en PDF</p>
+          </div>
+        </div>
+        <div class="sheet-header-right">
+          <strong>CIERRE</strong>
+          <span>Entrega Oficial</span>
+        </div>
+      </header>
+
+      <div class="sheet-body">
+        <!-- Rúbrica Oficial de Desempeño según lineamientos del MEN -->
+        <article class="theory-block" style="background:#ffffff; border:1px solid #cbd5e1;">
+          <h3 style="font-size:0.88rem; font-weight:800; color:#0f172a; margin-bottom:0.4rem;">
+            <i class="fas fa-clipboard-check"></i> Rúbrica Oficial de Desempeño y Competencias DBA (MEN)
+          </h3>
+          <p style="font-size:0.74rem; color:#475569; margin-bottom:0.4rem;">
+            La valoración definitiva integra la verificación interactiva y la transcripción manual con sustentación analítica en tu cuaderno de física:
+          </p>
+
+          <table class="rubric-table">
+            <thead>
+              <tr>
+                <th style="width:25%;">Competencia / Criterio</th>
+                <th style="width:25%;">Superior (4.6 - 5.0)</th>
+                <th style="width:25%;">Alto (4.0 - 4.5)</th>
+                <th style="width:25%;">Básico / Bajo (&lt; 4.0)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Trabajo y Producto Escalar</strong></td>
+                <td>Aplica $W = F d \cos\theta$ con despejes algebraicos impecables, reconociendo el significado físico de $\theta = 90^\circ$.</td>
+                <td>Calcula el trabajo mecánico con mínimos errores de signos o unidades.</td>
+                <td>Confunde trabajo motor con resistente u omite el coseno del ángulo.</td>
+              </tr>
+              <tr>
+                <td><strong>2. Teorema Trabajo-Energía</strong></td>
+                <td>Demuestra la relación cuantitativa $W_{neto} = \Delta K$ y explica por qué la distancia de frenado crece cuadráticamente.</td>
+                <td>Aplica la fórmula de energía cinética pero titubea al vincular la fricción.</td>
+                <td>Presenta dificultades en el despeje algebraico de la velocidad o distancia.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Resortes y Ley de Hooke</strong></td>
+                <td>Calcula $F_s = -kx$ y $U_e = \frac{1}{2}kx^2$ interpretando geométricamente el área del gráfico $F$ vs $x$.</td>
+                <td>Calcula la energía elástica pero confunde la fuerza restauradora con la aplicada.</td>
+                <td>Olvida elevar al cuadrado la deformación $x$ en la fórmula de energía elástica.</td>
+              </tr>
+              <tr>
+                <td><strong>4. Conservación y Potencia</strong></td>
+                <td>Resuelve sistemas conservativos y disipativos ($K_i + U_i = K_f + U_f + E_{th}$) y calcula potencia en Watts y HP.</td>
+                <td>Aplica la conservación pero presenta dudas al contabilizar pérdidas por fricción.</td>
+                <td>Confunde trabajo (Joules) con potencia (Watts) o energía con fuerza.</td>
+              </tr>
+              <tr>
+                <td><strong>5. Presentación y Cuaderno</strong></td>
+                <td>Transcripción manual pulcra, esquemas vectoriales trazados con regla y justificación paso a paso.</td>
+                <td>Transcripción manual ordenada con gráficos legibles.</td>
+                <td>Entrega incompleta, sin esquemas o sin procedimientos analíticos detallados.</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+
+        <!-- Tarjeta de Metacognición: ¿Qué aprendiste hoy? -->
+        <article class="mission-banner" style="background: linear-gradient(135deg, #065f46, #047857); color:white;">
+          <h4 style="font-size:0.86rem; font-weight:800; color:#a7f3d0; margin-bottom:0.35rem;">
+            <i class="fas fa-brain"></i> REFLEXIÓN METACOGNITIVA: ¿QUÉ APRENDISTE HOY?
+          </h4>
+          <div style="font-size:0.75rem; line-height:1.45; opacity:0.95;">
+            <p>1. ¿Por qué una fuerza puede estar empujando fuertemente un objeto sin realizar ningún trabajo mecánico sobre él?</p>
+            <p>2. Si duplicas la velocidad a la que conduces tu bicicleta, ¿por qué requieres 4 veces más distancia para frenar por completo?</p>
+            <p>3. ¿Cómo se transforma la energía potencial del agua en las montañas de Risaralda hasta encender el foco de tu habitación?</p>
+            <p style="margin-top:0.35rem; color:#fef08a; font-weight:700;">* Escribe tus respuestas y reflexiones de puño y letra en tu cuaderno de física.</p>
+          </div>
+        </article>
+
+        <!-- Resumen de datos del estudiante -->
+        <div id="summaryStudentInfo" style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:var(--radius-sm); padding:0.6rem 0.9rem; font-size:0.78rem; color:#1e3a8a;">
+          Cargando datos del estudiante...
+        </div>
+
+        <!-- Bloque de Envío y Exportación en PDF -->
+        <article class="submission-box">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: #dcfce7; color: #16a34a; display:flex; align-items:center; justify-content:center; font-size:1.4rem;">
+            <i class="fas fa-award"></i>
+          </div>
+          <h3>Finalización, Calificación y Entrega del Taller</h3>
+          <p>
+            Genera tu reporte oficial de resultados evaluativos, cópialo para enviarlo al profesor por WhatsApp o correo, y descarga tu documento oficial en <strong>formato PDF en tamaño Carta</strong> para tu portafolio académico.
+          </p>
+
+          <div style="display:flex; gap:0.65rem; flex-wrap:wrap; justify-content:center;">
+            <button type="button" class="btn-action btn-primary" id="btnSubmitResults" style="font-size:0.88rem; padding:0.6rem 1.3rem;">
+              <i class="fas fa-check-double"></i> Calificar y Generar Reporte de Resultados
+            </button>
+            <button type="button" class="btn-action btn-pdf" id="btnExportPdfMain" style="font-size:0.88rem; padding:0.6rem 1.3rem;">
+              <i class="fas fa-file-pdf"></i> Exportar Guía-Taller a PDF (Tamaño Carta)
+            </button>
+          </div>
+        </article>
+
+        <div class="sheet-nav-controls">
+          <button type="button" class="btn-nav-step" data-nav-target="sheet-7">
+            <i class="fas fa-arrow-left"></i> Anterior: Taller Evaluativo
+          </button>
+          <span style="font-size:0.75rem; color:#64748b; font-weight:600;">Sección 8 de 8: Cierre y Exportación</span>
+          <button type="button" class="btn-nav-step primary" data-nav-target="sheet-1">
+            <i class="fas fa-home"></i> Volver a la Portada
+          </button>
+        </div>
+      </div>
+
+      <footer class="sheet-footer">
+        <div class="footer-coordinator">
+          <i class="fas fa-user-tie"></i> Luis Hernando Blandón Dávila — Coordinador de Física PAFEM
+        </div>
+        <div class="footer-page-num">Página 8 de 8</div>
+      </footer>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       MODAL DE REPORTE DE RESULTADOS DE ENTREGA
+       ======================================================================== -->
+  <aside class="modal-backdrop" id="modalSubmission" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3 id="modalTitle"><i class="fas fa-clipboard-check"></i> Reporte Oficial de Entrega de Taller PAFEM</h3>
+        <button type="button" class="modal-close" id="modalCloseBtn" aria-label="Cerrar modal">&times;</button>
+      </div>
+      <p style="font-size:0.78rem; color:#475569; margin-bottom: 0.5rem;">
+        Resumen de desempeño del estudiante para entrega institucional:
+      </p>
+
+      <div class="report-preview-box" id="reportPreviewText"></div>
+
+      <div style="display: flex; gap: 0.5rem; justify-content: flex-end; flex-wrap: wrap; margin-top: 1rem;">
+        <button type="button" class="btn-action btn-secondary" id="btnDownloadTxt">
+          <i class="fas fa-download"></i> Descargar Reporte (.txt)
+        </button>
+        <button type="button" class="btn-action btn-primary" id="btnCopyReport">
+          <i class="fas fa-copy"></i> Copiar para WhatsApp / Correo
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       MODAL LIGHTBOX PARA AMPLIACIÓN DE ILUSTRACIONES EN PANTALLA COMPLETA
+       ======================================================================== -->
+  <aside class="lightbox-modal" id="imageLightboxModal" role="dialog" aria-modal="true" aria-label="Visualizador de imagen en alta resolución">
+    <div class="lightbox-content">
+      <button type="button" class="lightbox-close-btn" id="lightboxCloseBtn" title="Cerrar vista">&times;</button>
+      <img id="lightboxImg" src="" alt="Ilustración ampliada">
+      <div class="lightbox-footer">
+        <span id="lightboxCaption" style="font-weight:600;"></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Botón Flotante para Volver al Inicio -->
+  <button type="button" class="btn-floating-top" id="btnBackToTop" title="Volver al inicio" aria-label="Volver al inicio">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts de la Aplicación (Modulares, Autocontenidos y Robustos) -->
+  <script src="js/simulations.js"></script>
+  <script src="js/workshop.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
